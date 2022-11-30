@@ -1,0 +1,29 @@
+name: Java CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build:
+    name: "JDK: ${{ matrix.java_version }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        java_version: [ 17, 18, 19 ]
+
+    steps:
+    - name: Checkout for build
+      uses: actions/checkout@v3
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: ${{ matrix.java_version }}
+        cache: 'maven'
+    - name: Compile with Maven
+      run: |
+        ./mvnw --no-transfer-progress compile
+
