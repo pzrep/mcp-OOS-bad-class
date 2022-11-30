@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <plexus.compiler.version>2.11.1</plexus.compiler.version>
+        <plexus.compiler.version>2.12.1</plexus.compiler.version>
     </properties>
 
     <build>
